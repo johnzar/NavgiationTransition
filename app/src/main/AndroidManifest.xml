@@ -11,8 +11,7 @@
         android:theme="@style/Theme.NavigationTransition">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/HalfTransParent">:
-
+            android:theme="@style/HalfTransParent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
