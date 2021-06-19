@@ -8,5 +8,18 @@
         android:id="@+id/firstFragement"
         android:name="com.johnzar.navigationtransition.FirstFragement"
         android:label="FirstFragement"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragement_to_secondFragment2"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.johnzar.navigationtransition.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_secondFragment_to_firstFragement2"
+            app:destination="@id/firstFragement" />
+    </fragment>
 </navigation>
