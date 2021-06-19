@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/firstFragement">
+    app:startDestination="@id/firstFragment">
     <fragment
-        android:id="@+id/firstFragement"
-        android:name="com.johnzar.navigationtransition.FirstFragement"
-        android:label="FirstFragement"
-        tools:layout="@layout/fragment_first" >
+        android:id="@+id/firstFragment"
+        android:name="com.johnzar.navigationtransition.FirstFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/action_firstFragement_to_secondFragment2"
+            android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
@@ -18,8 +18,18 @@
         android:name="com.johnzar.navigationtransition.SecondFragment"
         android:label="SecondFragment"
         tools:layout="@layout/fragment_second">
+        <argument
+            android:name="tns_root_layout"
+            app:nullable="false" />
+        <argument
+            android:name="isContainEnvelope"
+            android:defaultValue="false"
+            app:nullable="false" />
+        <argument
+            android:name="money"
+            app:nullable="false" />
         <action
-            android:id="@+id/action_secondFragment_to_firstFragement2"
-            app:destination="@id/firstFragement" />
+            android:id="@+id/action_secondFragment_to_firstFragement"
+            app:destination="@id/firstFragment" />
     </fragment>
 </navigation>
