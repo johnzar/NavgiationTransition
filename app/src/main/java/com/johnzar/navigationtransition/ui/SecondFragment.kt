@@ -119,7 +119,7 @@ class SecondFragment : Fragment() {
                         recyclerView = rcvEnvelope,
                         centerToLeftDistance = centerToLeftDistance
                     )
-                }, 500)
+                }, 100)
 
                 // #3 스크롤 리스너 추가.
                 addOnScrollListener(object : RecyclerView.OnScrollListener() {
