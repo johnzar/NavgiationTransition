@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_lyt"
+        android:transitionName="shared_tns_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -39,12 +41,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/root_lyt_money_info"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/white"
             android:transitionGroup="false"
-            android:transitionName="shared_tns_layout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
@@ -89,7 +89,7 @@
                     android:id="@+id/btn_complete"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="?selectableItemBackgroundBorderless"
+                    android:background="?android:selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="송금하기"
                     android:textColor="@color/black"
@@ -98,7 +98,6 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

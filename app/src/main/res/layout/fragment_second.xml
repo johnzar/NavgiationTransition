@@ -28,7 +28,7 @@
             android:layout_height="0dp"
             android:background="@android:color/transparent"
             android:visibility="@{isContainEnvelope==true?View.GONE:View.VISIBLE,default = visible}"
-            app:layout_constraintHeight_percent="0.38"
+            app:layout_constraintHeight_percent="0.39"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +37,7 @@
             android:layout_height="0dp"
             android:background="@android:color/darker_gray"
             android:visibility="@{isContainEnvelope==false?View.GONE:View.VISIBLE,default = visible}"
-            app:layout_constraintHeight_percent="0.375"
+            app:layout_constraintHeight_percent="0.39"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -81,6 +81,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="246,000원" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
             <View
                 android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.johnzar.navigationtransition
+package com.johnzar.navigationtransition.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.johnzar.navigationtransition.R
 import com.johnzar.navigationtransition.databinding.FragmentFirstBinding
 
 
@@ -37,11 +38,11 @@ class FirstFragment : Fragment() {
             btnSend.setOnClickListener {
                 findNavController().navigate(
                     FirstFragmentDirections.actionFirstFragmentToSecondFragment(
-                        tnsRootLayout = rootLytMoneyInfo.transitionName,
+                        tnsRootLayout = rootLyt.transitionName,
                         money = tvMoney.text.toString().trim(),
                         isContainEnvelope = checkBongtu.isChecked
                     ), FragmentNavigatorExtras(
-                        rootLytMoneyInfo to rootLytMoneyInfo.transitionName,
+                        rootLyt to rootLyt.transitionName,
                     )
                 )
             }

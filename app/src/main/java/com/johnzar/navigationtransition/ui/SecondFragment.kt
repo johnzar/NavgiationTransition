@@ -1,4 +1,4 @@
-package com.johnzar.navigationtransition
+package com.johnzar.navigationtransition.ui
 
 import android.content.Context
 import android.graphics.Color
@@ -8,15 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
-import android.widget.AbsListView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.parser.ColorParser
 import com.google.android.material.transition.MaterialContainerTransform
+import com.johnzar.navigationtransition.CenterViewItem
+import com.johnzar.navigationtransition.EnvelopListAdapter
+import com.johnzar.navigationtransition.Envelope
+import com.johnzar.navigationtransition.R
 import com.johnzar.navigationtransition.databinding.FragmentSecondBinding
 import java.util.ArrayList
 
@@ -100,7 +101,6 @@ class SecondFragment : Fragment() {
                     initEnvelopeList(childViewHalfCount,centerToLeftDistance)
                     // 그리고 어댑터 notify.
                     envelopeAdapter.submitList(envelopeList)
-                    envelopeList
                 }
             }
             startPostponedEnterTransition()
@@ -108,10 +108,10 @@ class SecondFragment : Fragment() {
     }
 
     private fun initEnvelopeList(childViewHalfCount: Int, centerToLeftDistance: Int) {
-        for (j in 0 until childViewHalfCount) { //头部的空布局
+        for (j in 0 until childViewHalfCount) {
             envelopeList.add(0, Envelope("",null))
         }
-        for (k in 0 until childViewHalfCount) {  //尾部的空布局
+        for (k in 0 until childViewHalfCount) {
             envelopeList.add(null)
         }
     }
