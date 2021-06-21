@@ -39,7 +39,8 @@ class EnvelopListAdapter(
         RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener{
-                onClickListener(bindingAdapterPosition)
+                if(getItem(bindingAdapterPosition).message.isNotEmpty())
+                    onClickListener(bindingAdapterPosition)
             }
         }
         fun bind(item: Envelope?) = binding.run {

@@ -32,7 +32,6 @@ class SecondFragment : Fragment() {
     }
 
     private fun onClickListener(position:Int):Unit{
-        Log.d("TEST","position:$position")
         scrollToCenter(position,binding.rcvEnvelope,binding.rcvEnvelope.width/2)
     }
 
@@ -85,7 +84,7 @@ class SecondFragment : Fragment() {
             tvMoney.text = args.money                               // 머니
             isContainEnvelope = args.isContainEnvelope              // 송금봉투 여부
             rootLytMoneyInfo.transitionName = args.tnsRootLayout    // 트랜지션 이름
-            topEmptyLayout.setOnClickListener {
+            topEmptyLayout.setOnClickListener {                     // 뒤로가기.
                 findNavController().popBackStack()
             }
             initRecyclerView(rcvEnvelope)
@@ -110,7 +109,7 @@ class SecondFragment : Fragment() {
 
                 // #1 송금봉투 아이템리스트 notify.
                 initEnvelopeList(childViewHalfCount)        // 화면 크기에 맞게 리스트 앞뒤 빈 아이템 추가.
-                envelopeAdapter.submitList(envelopeList)    // 앞서 미리 받아온 리스트.
+                envelopeAdapter.submitList(envelopeList)    // 앞서 미리 받아온 리스트. 중요!!
 
                 // #2 첫번째 아이템 중앙으로 스크롤.
                 postDelayed({
@@ -183,7 +182,6 @@ class SecondFragment : Fragment() {
         recyclerView.smoothScrollBy(smoothDistance, 0, DecelerateInterpolator())
     }
 
-
     private fun getGaussianScale(
         recyclerView: RecyclerView,
         childCenterX: Int,              // 뷰 크기의 센터값.
@@ -200,7 +198,6 @@ class SecondFragment : Fragment() {
             ))
         ) * scaleFactor + minScaleOffest).toFloat()
     }
-
 
 }
 
