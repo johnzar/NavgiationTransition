@@ -92,7 +92,6 @@ class SecondFragment : Fragment() {
                 findNavController().popBackStack()
             }
             initRecyclerView(rcvEnvelope)
-
             startPostponedEnterTransition()
         }
     }
@@ -109,12 +108,12 @@ class SecondFragment : Fragment() {
             override fun onGlobalLayout() {
                 viewTreeObserver.removeOnGlobalLayoutListener(this)
                 val centerToLeftDistance = width / 2
-                val childViewWidth: Int = context.dpTopx(133F)
+                val childViewWidth: Int = context.dpTopx(132F) // 132은 아이템 너비 사이즈.
                 val childViewHalfCount = (width / childViewWidth) / 2
 
                 // #1 송금봉투 아이템리스트 notify.
-                initEnvelopeList(childViewHalfCount)
-                envelopeAdapter.submitList(envelopeList)
+                initEnvelopeList(childViewHalfCount)        // 화면 크기에 맞게 리스트 앞뒤 빈 아이템 추가.
+                envelopeAdapter.submitList(envelopeList)    // 앞서 미리 받아온 리스트.
 
                 // #2 첫번째 아이템 중앙으로 스크롤.
                 postDelayed({
@@ -139,10 +138,7 @@ class SecondFragment : Fragment() {
                             val lastVisibleItemPos =
                                 linearLayoutManager.findLastVisibleItemPosition()
                             val targetItemPos = (firstVisibleItemPos + lastVisibleItemPos) / 2
-                            Log.i(
-                                "TEST",
-                                "targetItemPos:$targetItemPos, item:${envelopeList[targetItemPos]}"
-                            )
+                            rcvEnvelope.alpha = 0.3f
                             rcvEnvelope.setBackgroundColor(envelopeList[targetItemPos].backgroundColor)
                         }
                     }
