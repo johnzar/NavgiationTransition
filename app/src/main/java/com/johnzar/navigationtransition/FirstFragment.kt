@@ -1,6 +1,7 @@
 package com.johnzar.navigationtransition
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,5 +46,20 @@ class FirstFragment : Fragment() {
                 )
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("TEST","onDestroyView()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TEST","onDestroy()")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("TEST","onDetach()")
     }
 }

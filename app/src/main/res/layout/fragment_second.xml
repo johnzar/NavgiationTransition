@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="isContainEnvelope"
             type="boolean" />
@@ -15,23 +17,46 @@
         android:layout_height="match_parent"
         tools:background="@color/translucent">
 
+        <com.johnzar.navigationtransition.StatusBarCoverView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/top_empty_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@android:color/transparent"
             android:visibility="@{isContainEnvelope==true?View.GONE:View.VISIBLE,default = visible}"
-            app:layout_constraintHeight_percent="0.40"
+            app:layout_constraintHeight_percent="0.38"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/top_envelope_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@android:color/black"
+            android:background="@android:color/darker_gray"
             android:visibility="@{isContainEnvelope==false?View.GONE:View.VISIBLE,default = visible}"
-            app:layout_constraintHeight_percent="0.40"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHeight_percent="0.375"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_envelope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_envelope_02"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.johnzar.navigationtransition.PayEnvelopeRecyclerView
+                android:id="@+id/rcv_envelope"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_envelope" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
