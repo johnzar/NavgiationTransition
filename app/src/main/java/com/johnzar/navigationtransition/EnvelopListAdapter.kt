@@ -20,8 +20,9 @@ object EnvelopeItemDiffUtilCallback : DiffUtil.ItemCallback<Envelope>() {
 
 }
 
-class EnvelopListAdapter :
-    ListAdapter<Envelope, EnvelopListAdapter.EnvelopeViewHolder>(EnvelopeItemDiffUtilCallback) {
+class EnvelopListAdapter(
+    val onClickListener:(Int) -> Unit
+) : ListAdapter<Envelope, EnvelopListAdapter.EnvelopeViewHolder>(EnvelopeItemDiffUtilCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EnvelopeViewHolder {
         return EnvelopeViewHolder(
             ItemEnvelopeBinding.inflate(
@@ -36,6 +37,11 @@ class EnvelopListAdapter :
 
     inner class EnvelopeViewHolder(val binding: ItemEnvelopeBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener{
+                onClickListener(bindingAdapterPosition)
+            }
+        }
         fun bind(item: Envelope?) = binding.run {
             binding.tvMessage.text = item?.message
         }

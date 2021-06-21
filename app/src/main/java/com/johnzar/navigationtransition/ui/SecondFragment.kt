@@ -28,12 +28,12 @@ class SecondFragment : Fragment() {
     private val args by navArgs<SecondFragmentArgs>()
 
     private val envelopeAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        EnvelopListAdapter()
+        EnvelopListAdapter(::onClickListener)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("TEST", "onAttach()")
+    private fun onClickListener(position:Int):Unit{
+        Log.d("TEST","position:$position")
+        scrollToCenter(position,binding.rcvEnvelope,binding.rcvEnvelope.width/2)
     }
 
     private val envelopeList = arrayListOf<Envelope>(
@@ -50,9 +50,6 @@ class SecondFragment : Fragment() {
         Envelope(message = "술마셔요", Color.RED),
         Envelope(message = "배불러요", Color.MAGENTA)
     )
-
-    private val centerViewItems: ArrayList<CenterViewItem> = ArrayList()
-    private var isTouch = false // 리싸이클러뷰 아이템 터치여부.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -177,9 +174,7 @@ class SecondFragment : Fragment() {
         recyclerView: RecyclerView,
         centerToLeftDistance: Int
     ) {
-        val childView =
-            (recyclerView.layoutManager as LinearLayoutManager).findViewByPosition(position)
-                ?: return
+        val childView = (recyclerView.layoutManager as LinearLayoutManager).findViewByPosition(position) ?: return
         // 현재 View를 가운데 위치로 이동
         val childViewHalf = childView.width / 2     // 자식뷰의 절반.
         val childViewLeft = childView.left          // 자식뷰의 왼쪽.
